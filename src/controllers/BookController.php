@@ -10,6 +10,11 @@ class BookController
             // La classe Verif s'occupe de mettre un message d'erreur dans la session si le titre n'est pas valide
             Verif::verifTitre($_POST["titre"]);
 
+
+            // if (empty($_SESSION["msg"])){
+            //     Book::registerCover($_FILES["tmp_name"]);
+            // }
+
             if (empty($_SESSION["msg"]))
             {
 
@@ -38,11 +43,11 @@ class BookController
     {
         $allBooks = Book::extractAllBooks();
 
-        //Support::debug($allBooks);
+        // Support::debug($allBooks);
 
         include VIEWS . "book/displayBooks.php";
 
-        
+
     }
 }
 

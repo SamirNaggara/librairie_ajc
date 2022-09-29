@@ -1,0 +1,21 @@
+form.ajout-livre{
+    border: 2px solid black;
+    margin: 0 auto;
+
+    div{
+        background-color: grey;
+
+        #titre{
+            text-align: center;
+            border: none;
+        }
+
+        label{
+            font-size: 30px;
+            @media screen AND (max-width: 960px){
+                font-size: 15px;
+            }
+        }
+    }
+}
+
