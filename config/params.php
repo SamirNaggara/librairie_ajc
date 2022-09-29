@@ -37,8 +37,9 @@ const ASSETS = CONFIG['app']['projectBaseUrl'] . "/assets/";
 
 $routes = [
     ''                  => ['AppController', 'index'],
-    '/ajout-livre'       => ['BookController', 'addBook']
-
+    '/ajout-livre'      => ['BookController', 'addBook'],
+    '/livres'           => ['BookController', 'displayBooks']
+    /* Exerice : Creer la page qui permet d'afficher tout les livres */
 
 
 
