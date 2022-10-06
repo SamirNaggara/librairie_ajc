@@ -13,7 +13,7 @@ const CONFIG = [
     ],
     'app' => [
         'name' => 'Master Lib',
-        'projectBaseUrl' => 'http://local/Cours/MVC/masterLib/'
+        'projectBaseUrl' => 'http://localhost/masterLib/'
     ]
 ];
 
@@ -37,6 +37,7 @@ $routes = [
     ''                  => ['AppController', 'index'],
     '/ajout_livre'      => ['BookController', 'addBook'],
     '/livres'           => ['BookController', 'displayBooks'],
-    '/delete-book'      => ['BookController', 'deleteBook']
+    '/delete-book'      => ['BookController', 'deleteBook'],
+	'/detail-book'		=> ['BookController','detailBook']
 
 ];

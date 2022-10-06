@@ -80,5 +80,15 @@ class BookController
 
         
     }
-
+	
+	public static function detailBook()
+	{
+		if (isset($_GET["id"]) && !empty($_GET["id"]))
+		{
+			$detailLivre = Book::detailBook($_GET["id"]);
+			
+			include VIEWS . 'book/detailBook.php';
+			
+		}
+	}
 }

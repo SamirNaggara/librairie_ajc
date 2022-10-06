@@ -16,6 +16,7 @@
                         <p class="card-text">Prix : <?=$book["price"]?>€</p>
                     <?php }?>
                     <a href="delete-book?id=<?=$book["id_book"]?>" class="btn btn-outline-danger">Supprimer</a>
+					<a href="detail-book?id=<?=$book["id_book"]?>" class="btn btn-primary">Voir le livre</a>
                 </div>
             </div>
         <?php

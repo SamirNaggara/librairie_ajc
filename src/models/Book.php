@@ -19,7 +19,7 @@
         
         public static function extractAllBooks()
         {
-            $requete = "SELECT * FROM book ";
+            $requete = "SELECT * FROM book";
             $response = self::getDb()->prepare($requete);  //On prépare la requête
             $resultat = $response->execute(); 
             if ($resultat) //Si la requête fonctionne bien 
@@ -43,5 +43,14 @@
                 $id
             ]); 
         }
+		
+		public static function detailBook(int $id)
+		{
+			$requete = "SELECT * FROM book WHERE id_book=?";
+            $response = self::getDb()->prepare($requete);  //On prépare la requête
+            $resultat = $response->execute([$id]); 
+            if ($resultat) //Si la requête fonctionne bien 
+                return $response->fetch(PDO::FETCH_ASSOC); //On récupère les données, on les extrait avec fetchAll()
+		}
 
     }
