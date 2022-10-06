@@ -91,4 +91,56 @@ class BookController
 			
 		}
 	}
+	
+	public static function updateBook()
+	{
+		// Si il n'y a pas d'id ou qu'il est vide, on renvoie a la page des livres
+		if (!isset($_GET["id"]) || empty($_GET["id"]))
+		{
+			header("Location:" . BASE_PATH . "livres");
+			die;
+		}
+		
+		$detailLivre = Book::detailBook($_GET["id"]);
+		
+	
+		if (!empty($_POST))
+		{
+			
+			if (!empty($_FILES["cover"]["name"]))
+			{
+				$fileName = Book::registerCover($_FILES["cover"]);
+			}else
+			{
+				
+				$fileName = $detailLivre["cover"];
+			}
+			
+			$resultat = Book::updateBook([
+				"id"		=>		$_GET["id"],
+				"title"		=>		$_POST["title"],
+				"genre"		=>		$_POST["genre"],
+				"author"	=>		$_POST["author"],
+				"price"		=>		$_POST["price"],
+				"quantity"	=>		$_POST["quantity"],
+				"cover"		=>		$fileName
+			]);
+			
+			if ($resultat)
+			{
+				MessageManager::displaySuccess("Votre livre " . $_POST["title"] . " a bien été modifié !");
+			}
+			else
+			{
+				MessageManager::displayError("Il y a eu un soucis avec la modification du livre !");
+			}
+		}
+		
+		$detailLivre = Book::detailBook($_GET["id"]);
+		
+		include VIEWS . 'book/updateBook.php';
+		
+		
+		
+	}
 }

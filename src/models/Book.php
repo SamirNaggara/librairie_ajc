@@ -52,5 +52,22 @@
             if ($resultat) //Si la requête fonctionne bien 
                 return $response->fetch(PDO::FETCH_ASSOC); //On récupère les données, on les extrait avec fetchAll()
 		}
+		
+		public static function updateBook(array $data)
+		{
+			$requete = "UPDATE book SET title=?,quantity=?,genre=?,author=?,price=?,cover=? WHERE id_book = ?";
+            $response = self::getDb()->prepare($requete);
+            return $response->execute([
+                $data["title"],
+                $data["quantity"],
+                $data["genre"],
+                $data["author"],
+                $data["price"],
+                $data["cover"],
+				$data["id"]
+            ]);  
+		}
+		
+	
 
     }

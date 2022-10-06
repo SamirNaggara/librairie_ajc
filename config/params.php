@@ -38,6 +38,7 @@ $routes = [
     '/ajout_livre'      => ['BookController', 'addBook'],
     '/livres'           => ['BookController', 'displayBooks'],
     '/delete-book'      => ['BookController', 'deleteBook'],
-	'/detail-book'		=> ['BookController','detailBook']
+	'/detail-book'		=> ['BookController','detailBook'],
+	'/update-book'		=> ['BookController', 'updateBook']
 
 ];
